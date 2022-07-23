@@ -62,6 +62,10 @@ projects (e.g. [SYCL-BLAS](https://www.khronos.org/sycl/resources) and
 [SYCL-DNN](https://www.khronos.org/sycl/resources)) are actively been developed
 by the same company.
 
+It seems like there has been a time when [TensorFlow was supporting
+SYCL](https://github.com/tensorflow/tensorflow/blob/be29b5d32fd132d7f6d75c0ba2e37b7b0347444e/tensorflow/python/framework/test_util.py#L1921),
+but now it's not any longer the case.
+
 ## References
 
 - [official resources](https://www.khronos.org/sycl/resources)
