@@ -88,30 +88,7 @@ See [rust](./README.md)
 
 #### SYCL
 
-Various implementations, no one really open source and well supported.
-
-Not all of them have support for all back-ends.
-There is also lack of learning material.
-
-Open implementations:
-
-- (dropped) https://github.com/ProGTX/sycl-gtx
-- (initially AMD, now Xilinx - unstable) https://github.com/triSYCL/triSYCL
-  - docs: http://trisycl.github.io/triSYCL/Doxygen/triSYCL/html/
-    - Doxygen generated -> reference, no user manual
-
-Proprietary:
-
-- (intel + codeplay) DPC++ https://github.com/intel/llvm/tree/sycl
-  - docs: https://intel.github.io/llvm-docs/
-  - https://www.oneapi.io/
-- (codeplay) ComputeCpp
-  - native support for SYCL BLAS: https://github.com/codeplaysoftware/sycl-blas
-  - involved interfaces to:
-    - Eigen
-    - TensorFlow [through SYCL accelarated Eigen](https://developer.codeplay.com/products/computecpp/ce/guides/tensorflow-overview)
-      - turns out TensorFlow already uses Eigen on its own
-  - Codeplay is also the original author of SYCL
+See [SYCL](./sycl/README.md).
 
 #### Kokkos
 
