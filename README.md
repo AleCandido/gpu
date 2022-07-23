@@ -64,6 +64,7 @@ Reuse same array in GPU over and over (passing "pointers").
    - graphics has a different logic (shaders, 3D native, ...), so it would
      require relevant effort to fit our concepts (n-dim arrays and generic
      linear algebra) in its language
+4. support at least Nvidia and AMD
 
 ## Framework choice
 
@@ -81,16 +82,7 @@ Julia.
 
 ### Rust (almost discarded)
 
-At the moment, the status of GPU computation in Rust is rather bad:
-
-- https://github.com/EmbarkStudios/rust-gpu
-  - under heavy development
-  - mainly oriented towards graphics, not GPGPU
--
-
-Most promising:
-
-- https://github.com/arrayfire/arrayfire-rust
+See [rust](./README.md)
 
 ### C++
 
