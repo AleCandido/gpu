@@ -8,4 +8,8 @@ pronounced "sickle".
 
 Status as of [February 1, 2021](https://arrayfire.com/blog/cycling-through-sycl/):
 
-![ecosystem overview](./sycl-eco.jpg)
+![ecosystem overview](./ecosystem.jpg)
+
+From [`hipSYCL`](https://github.com/illuhad/hipSYCL)
+
+![targets overview](./targets.jpg)
