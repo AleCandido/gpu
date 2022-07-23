@@ -32,6 +32,7 @@ Open implementations:
   - in principle targets all back-ends via other libraries: CUDA, HIP/ROCm,
     oneAPI
   - it might lack libraries, maybe?
+  - definitely lacking good docs
 
 hipSYCL is definitely the best open source one, but still rather incomplete
 (triSYCL is only interesting for FPGA).
@@ -49,3 +50,7 @@ Proprietary:
     - TensorFlow [through SYCL accelarated Eigen](https://developer.codeplay.com/products/computecpp/ce/guides/tensorflow-overview)
       - turns out TensorFlow already uses Eigen on its own
   - Codeplay is also the original author of SYCL
+
+## References
+
+- SYCL 2020 [presentation](https://www.khronos.org/assets/uploads/developers/presentations/SYCL-2020-Launch-Feb21.pdf)
