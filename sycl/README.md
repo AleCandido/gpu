@@ -4,15 +4,20 @@ Looks like it is not an
 [acronym](https://github.com/KhronosGroup/SYCL-Docs/issues/112), and it is
 pronounced "sickle".
 
+It seems that before SYCL 1.2.1 was released, and the current project is instead
+SYCL 2020.
+
+![timeline](./timeline.png)
+
 ## Ecosystem
 
 Status as of [February 1, 2021](https://arrayfire.com/blog/cycling-through-sycl/):
 
-![ecosystem overview](./ecosystem.jpg)
+![ecosystem](./ecosystem.jpg)
 
 From [`hipSYCL`](https://github.com/illuhad/hipSYCL)
 
-![targets overview](./targets.jpg)
+![targets](./targets.png)
 
 ## Implementations
 
@@ -51,6 +56,18 @@ Proprietary:
       - turns out TensorFlow already uses Eigen on its own
   - Codeplay is also the original author of SYCL
 
+Notice that while ComputeCpp has been interfaced with TensorFlow, the project is
+[a bit outdated](https://github.com/codeplaysoftware/tensorflow), while other
+projects (e.g. [SYCL-BLAS](https://www.khronos.org/sycl/resources) and
+[SYCL-DNN](https://www.khronos.org/sycl/resources)) are actively been developed
+by the same company.
+
 ## References
 
-- SYCL 2020 [presentation](https://www.khronos.org/assets/uploads/developers/presentations/SYCL-2020-Launch-Feb21.pdf)
+- [official resources](https://www.khronos.org/sycl/resources)
+- SYCL 2020
+  [presentation](https://www.khronos.org/assets/uploads/developers/presentations/SYCL-2020-Launch-Feb21.pdf)
+- SYCL 2020
+  [reference](https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html#chapter:sycl-programming-interface)
+- SYCL 2020
+  [cheatsheet](https://www.khronos.org/files/sycl/sycl-2020-reference-guide.pdf)
