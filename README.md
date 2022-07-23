@@ -68,19 +68,16 @@ Reuse same array in GPU over and over (passing "pointers").
 
 ## Framework choice
 
-### Python (discarded)
+### Python (almost discarded)
 
-- CuPy
-  - interesting because it has NumPy API,
-  - it would be inefficient to run from MadGraph
-- TensorFlow
+See [Python](./python/README.md)
 
 ### Julia (discarded)
 
 There is an entire [site](https://juliagpu.org/) dedicated to GPU computation in
 Julia.
 
-### Rust (almost discarded)
+### Rust (discarded)
 
 See [rust](./README.md)
 
