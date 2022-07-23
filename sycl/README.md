@@ -6,4 +6,6 @@ pronounced "sickle".
 
 ## Ecosystem
 
+Status as of [February 1, 2021](https://arrayfire.com/blog/cycling-through-sycl/):
+
 ![ecosystem overview](./sycl-eco.jpg)
