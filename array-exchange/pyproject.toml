@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "test"
+name = "benchmark"
 version = "0.0.0"
 description = "Test array exchange"
 authors = ["Alessandro Candido <candido.ale@gmail.com>"]
@@ -14,11 +14,29 @@ scalene = "^1.5.13"
 [tool.poetry.group.cuda.dependencies]
 cupy-cuda11x = "^11.1.0"
 tensorflow = "^2.10.0"
+torch = {version = "^1.12.1+cu116", source = "torch-cuda"}
 numba = "^0.56.2"
 
 
 [tool.poetry.group.rocm.dependencies]
 cupy-rocm-5-0 = "^11.1.0"
+# tensorflow-rocm = "2.10.0.520"
+# torch = {version = "1.12.1+rocm5.1.1", source = "torch-rocm"}
+
+
+[[tool.poetry.source]]
+name = "torch-cuda"
+url = "https://download.pytorch.org/whl/cu116"
+default = false
+secondary = true
+
+
+[[tool.poetry.source]]
+name = "torch-rocm"
+url = "https://download.pytorch.org/whl/rocm5.1.1"
+default = false
+secondary = true
+
 
 [build-system]
 requires = ["poetry-core"]

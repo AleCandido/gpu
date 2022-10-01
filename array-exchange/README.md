@@ -17,7 +17,12 @@ The dependencies are divided in groups:
   - `cupy`: needs dedicated package for different hardware
   - `tensorflow`: by default is built
     [without support for ROCm](https://www.tensorflow.org/api_docs/python/tf/test/is_built_with_rocm)
+  - `pytorch`: default package for CUDA, but an old version (so let's use an
+    alternative repository https://pytorch.org/get-started/locally/)
   - `numba`:
     [only supports CUDA](https://numba.readthedocs.io/en/stable/cuda/index.html)
 - `rocm`: the dependencies in this group are used to test on AMD hardware
   - `cupy`: needs dedicated package for different hardware
+  - `tensorflow-rocm`: the tf ROCm package
+  - `pytorch`: custom Python repository (PyPI alternative) available also for
+    ROCm
