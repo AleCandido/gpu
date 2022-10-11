@@ -2,6 +2,7 @@ import logging
 import subprocess
 
 from . import log, dispatch
+from .extract import ProfilerOutput
 from .. import meta
 
 _logger = logging.getLogger(__name__)
@@ -9,8 +10,11 @@ _logger = logging.getLogger(__name__)
 
 def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject):
     command = [
-        "nv-nsight-cu-cli",
-        *"--target-processes all".split(),
+        *"nsys profile".split(),
+        *"-c cudaProfilerApi".split(),
+        #  "ncu",
+        #  *"-o timeline".split(),
+        #  *"--target-processes all".split(),
         *"poetry run dispatch".split(),
         benchmark.name,
         *(f.name for f in frameworks),
@@ -28,8 +32,9 @@ def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject):
         )
 
     sp = subprocess.run(command, capture_output=True)
-    prof_out = sp.stdout.decode()
-    __import__("rich").print(prof_out)
+    prof_out = ProfilerOutput.extract(sp.stdout.decode())
+    __import__("rich").print(prof_out.full)
+    __import__("rich").print(sp.stderr.decode())
 
 
 def run():

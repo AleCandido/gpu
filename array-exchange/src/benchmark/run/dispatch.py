@@ -1,6 +1,7 @@
 import argparse
 import logging
-from sys import modules
+
+import cupyx.profiler
 
 from . import log, dispatch
 from .. import meta
@@ -29,4 +30,5 @@ def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject):
 
 def run():
     """Dispatch individual benchmark."""
-    launch(*parse())
+    with cupyx.profiler.profile():
+        launch(*parse())
