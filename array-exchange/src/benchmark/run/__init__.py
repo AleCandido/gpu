@@ -1,40 +1,47 @@
+import argparse
 import logging
-import subprocess
 
-from . import log, dispatch
-from .extract import ProfilerOutput
 from .. import meta
+from . import dispatch as dispatchm, cupybench, log
 
 _logger = logging.getLogger(__name__)
 
 
-def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject):
-    command = [
-        *"nsys profile".split(),
-        *"-c cudaProfilerApi".split(),
-        #  "ncu",
-        #  *"-o timeline".split(),
-        #  *"--target-processes all".split(),
-        *"poetry run dispatch".split(),
-        benchmark.name,
-        *(f.name for f in frameworks),
-    ]
-
-    _logger.info(
-        "Running command:\n\t[magenta]" + " ".join(command) + "[/]",
-        extra=dict(markup=True),
-    )
-
-    if benchmark.value.npars != len(frameworks):
+def validate(args):
+    if args.benchmark.value.npars != len(args.framework):
         raise ValueError(
-            f"Exactly {benchmark.value.npars} frameworks required, "
-            f"{len(frameworks)} provided"
+            f"Exactly {args.benchmark.value.npars} frameworks required, "
+            f"{len(args.framework)} provided"
         )
 
-    sp = subprocess.run(command, capture_output=True)
-    prof_out = ProfilerOutput.extract(sp.stdout.decode())
-    __import__("rich").print(prof_out.full)
-    __import__("rich").print(sp.stderr.decode())
+
+def parse() -> tuple[meta.Benchmark, meta.BenchSubject, bool]:
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("benchmark", type=meta.Benchmark.__getitem__)
+    parser.add_argument("framework", type=meta.Framework.__getitem__, nargs="+")
+    parser.add_argument("-d", "--dispatch", action="store_true")
+
+    args = parser.parse_args()
+    validate(args)
+
+    return args.benchmark, args.framework, args.dispatch
+
+
+def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject, dispatch: bool):
+    if dispatch:
+        start = dispatchm.start_bench
+    else:
+        start = cupybench.start_bench
+
+    pout = start(benchmark, frameworks)
+
+    __import__("rich").print(
+        "\n------------------\n Standard Output:\n------------------"
+    )
+    __import__("rich").print(pout.out)
+    __import__("rich").print("\n-----------------\n Standard Error:\n-----------------")
+    __import__("rich").print(pout.err)
 
 
 def run():
@@ -45,6 +52,6 @@ def run():
 
     """
     try:
-        launch(*dispatch.parse())
+        launch(*parse())
     except Exception as e:
         _logger.exception(e)

@@ -1,12 +1,38 @@
 import argparse
 import logging
+import subprocess
 
 import cupyx.profiler
 
-from . import log, dispatch
+from . import profiler
 from .. import meta
 
 _logger = logging.getLogger(__name__)
+
+
+def extract(output: str):
+    return profiler.ProfilerOutput(out=output)
+
+
+def start_bench(benchmark: meta.Benchmark, frameworks: meta.BenchSubject):
+    command = [
+        *"nsys profile".split(),
+        *"-c cudaProfilerApi".split(),
+        *"poetry run dispatch".split(),
+        benchmark.name,
+        *(f.name for f in frameworks),
+    ]
+
+    _logger.info(
+        "Running command:\n\t[magenta]" + " ".join(command) + "[/]",
+        extra=dict(markup=True),
+    )
+
+    sp = subprocess.run(command, capture_output=True)
+    prof_out = extract(sp.stdout.decode())
+    prof_out.err = sp.stderr.decode()
+
+    return prof_out
 
 
 def parse() -> tuple[meta.Benchmark, meta.BenchSubject]:

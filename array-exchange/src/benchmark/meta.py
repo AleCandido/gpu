@@ -1,7 +1,7 @@
 import enum
 import dataclasses
 import inspect
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 
 from .elems import cupy_, numba_, tensorflow_, torch_
 from . import benchmarks as bs
@@ -14,11 +14,11 @@ class Framework(enum.Enum):
     numba = numba_
 
 
-BenchSubject = tuple[Framework] | tuple[(Framework,) * 2]
+BenchSubject = Sequence[Framework]
 
 
 @dataclasses.dataclass
-class DefBench:
+class BenchInfo:
     f: Callable
     npars: int
 
@@ -28,8 +28,8 @@ class DefBench:
 
 
 class Benchmark(enum.Enum):
-    arange = DefBench.fromfunc(bs.arange)
-    saxpy = DefBench.fromfunc(bs.saxpy)
+    arange = BenchInfo.fromfunc(bs.arange)
+    saxpy = BenchInfo.fromfunc(bs.saxpy)
 
 
 shapes = {
