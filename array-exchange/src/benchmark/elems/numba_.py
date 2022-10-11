@@ -1,4 +1,14 @@
-#  import numba as nb
+"""Standardize Numba interface.
+
+Numba is definitely the most complicated to use, being closer to OpenCL (thus
+more low level).
+Moving explicitly arrays from memory to device is required, as well as taking
+care of the threads workload distribution.
+
+See `CUDA examples <https://numba.readthedocs.io/en/stable/cuda/examples.html>`_.
+
+"""
+
 import numpy as np
 from numba import cuda
 
