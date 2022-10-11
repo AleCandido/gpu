@@ -1,6 +1,16 @@
 import dataclasses
+import enum
 from collections.abc import Sequence
 from typing import Optional
+
+from . import nsys, cupybench, tfbench, torchbench
+
+
+class Profiler(enum.Enum):
+    nsys = nsys
+    cupy = cupybench
+    tensorflow = tfbench
+    torch = torchbench
 
 
 @dataclasses.dataclass

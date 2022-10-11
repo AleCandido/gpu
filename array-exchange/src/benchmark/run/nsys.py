@@ -1,3 +1,20 @@
+"""Profiler based on `nsys
+<https://docs.nvidia.com/nsight-systems/UserGuide/index.html>`_.
+
+NVIDIA deprecated ``nvprof`` and *Visual Profiler* in favor of new tools:
+
+    - `NVIDIA Nsight Systems <https://developer.nvidia.com/nsight-systems>`_,
+      corresponding to ``nsys`` CLI
+    - `NVIDIA Nsight Compute <https://developer.nvidia.com/nsight-compute>`_,
+      corresponding to ``ncu`` CLI
+
+A comparison between the two and the old ones can be found on the old Profiler
+guide, in the `Migrating section
+<https://docs.nvidia.com/cuda/profiler-users-guide/index.html#migrating-to-nsight-tools>`_
+(together with a concise description of the two, difficult to find elsewhere).
+
+"""
+
 import argparse
 import logging
 import subprocess

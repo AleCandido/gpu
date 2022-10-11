@@ -2,7 +2,7 @@ import argparse
 import logging
 
 from .. import meta
-from . import dispatch as dispatchm, cupybench, log
+from . import log, profiler
 
 _logger = logging.getLogger(__name__)
 
@@ -15,26 +15,30 @@ def validate(args):
         )
 
 
-def parse() -> tuple[meta.Benchmark, meta.BenchSubject, bool]:
+def parse() -> tuple[meta.Benchmark, meta.BenchSubject, profiler.Profiler]:
     parser = argparse.ArgumentParser()
 
     parser.add_argument("benchmark", type=meta.Benchmark.__getitem__)
     parser.add_argument("framework", type=meta.Framework.__getitem__, nargs="+")
-    parser.add_argument("-d", "--dispatch", action="store_true")
+    parser.add_argument(
+        "-p",
+        "--profiler",
+        type=profiler.Profiler.__getitem__,
+        default=profiler.Profiler.cupy,
+    )
 
     args = parser.parse_args()
     validate(args)
 
-    return args.benchmark, args.framework, args.dispatch
+    return args.benchmark, args.framework, args.profiler
 
 
-def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject, dispatch: bool):
-    if dispatch:
-        start = dispatchm.start_bench
-    else:
-        start = cupybench.start_bench
-
-    pout = start(benchmark, frameworks)
+def launch(
+    benchmark: meta.Benchmark,
+    frameworks: meta.BenchSubject,
+    profiler: profiler.Profiler,
+):
+    pout = profiler.value.start_bench(benchmark, frameworks)
 
     __import__("rich").print(
         "\n------------------\n Standard Output:\n------------------"

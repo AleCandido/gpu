@@ -1,1 +1,1 @@
-from ..run.extract import ProfilerOutput
+from ..run.profiler import ProfilerOutput

@@ -1,3 +1,7 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "gpu-interoperability"
 version = "0.0.0"
@@ -35,6 +39,7 @@ cupy-rocm-5-0 = "^11.1.0"
 [tool.poetry.group.dev.dependencies]
 ipython = "^8.5.0"
 pdbpp = "^0.10.3"
+Sphinx = "^5.2.3"
 
 [[tool.poetry.source]]
 name = "torch-cuda"
@@ -51,8 +56,11 @@ secondary = true
 
 [tool.poetry.scripts]
 bench = "benchmark.run:run"
-dispatch = "benchmark.run.dispatch:run"
+dispatch = "benchmark.run.nsys:run"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+docs = { "shell" = "cd docs; make html" }
+docs-clean = { "shell" = "cd docs; make clean" }
+docs-clean-apidoc = { "shell" = "git clean -fdx docs/source/" }
+docs-cleanall = ["docs-clean", "docs-clean-apidoc"]
