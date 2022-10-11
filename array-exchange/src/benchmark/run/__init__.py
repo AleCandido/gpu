@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject):
     command = [
         "nv-nsight-cu-cli",
-        #  *"--target-processes all".split(),
+        *"--target-processes all".split(),
         *"poetry run dispatch".split(),
         benchmark.name,
         *(f.name for f in frameworks),
@@ -21,7 +21,15 @@ def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject):
         extra=dict(markup=True),
     )
 
-    subprocess.run(command)
+    if benchmark.value.npars != len(frameworks):
+        raise ValueError(
+            f"Exactly {benchmark.value.npars} frameworks required, "
+            f"{len(frameworks)} provided"
+        )
+
+    sp = subprocess.run(command, capture_output=True)
+    prof_out = sp.stdout.decode()
+    __import__("rich").print(prof_out)
 
 
 def run():
@@ -31,4 +39,7 @@ def run():
     option for the profiler and analyzer.
 
     """
-    launch(*dispatch.parse())
+    try:
+        launch(*dispatch.parse())
+    except Exception as e:
+        _logger.exception(e)

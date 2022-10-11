@@ -29,14 +29,6 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "cloudpickle"
-version = "2.2.0"
-description = "Extended pickling support for Python objects"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[[package]]
 name = "colorama"
 version = "0.4.5"
 description = "Cross-platform colored terminal text."
@@ -57,7 +49,7 @@ test = ["flake8 (==3.7.8)", "hypothesis (==3.55.3)"]
 
 [[package]]
 name = "cupy-cuda11x"
-version = "11.1.0"
+version = "11.2.0"
 description = "CuPy: NumPy & SciPy for GPU"
 category = "dev"
 optional = false
@@ -70,11 +62,11 @@ numpy = ">=1.20,<1.26"
 [package.extras]
 all = ["Cython (>=0.29.22,<3)", "optuna (>=2.0)", "scipy (>=1.6,<1.12)"]
 stylecheck = ["autopep8 (==1.5.5)", "flake8 (==3.8.4)", "mypy (==0.950)", "pbr (==5.5.1)", "pycodestyle (==2.6.0)", "types-setuptools (==57.4.14)"]
-test = ["hypothesis (>=6.37.2)", "pytest (>=6.2)"]
+test = ["hypothesis (>=6.37.2,<6.55.0)", "pytest (>=6.2)"]
 
 [[package]]
 name = "cupy-rocm-5-0"
-version = "11.1.0"
+version = "11.2.0"
 description = "CuPy: NumPy & SciPy for GPU"
 category = "dev"
 optional = false
@@ -87,7 +79,7 @@ numpy = ">=1.20,<1.26"
 [package.extras]
 all = ["Cython (>=0.29.22,<3)", "optuna (>=2.0)", "scipy (>=1.6,<1.12)"]
 stylecheck = ["autopep8 (==1.5.5)", "flake8 (==3.8.4)", "mypy (==0.950)", "pbr (==5.5.1)", "pycodestyle (==2.6.0)", "types-setuptools (==57.4.14)"]
-test = ["hypothesis (>=6.37.2)", "pytest (>=6.2)"]
+test = ["hypothesis (>=6.37.2,<6.55.0)", "pytest (>=6.2)"]
 
 [[package]]
 name = "decorator"
@@ -99,7 +91,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "executing"
-version = "1.1.0"
+version = "1.1.1"
 description = "Get the currently executing AST node of a frame, and other information"
 category = "dev"
 optional = false
@@ -308,14 +300,6 @@ python-versions = ">=3.6"
 plugins = ["importlib-metadata"]
 
 [[package]]
-name = "pynvml"
-version = "11.4.1"
-description = "Python Bindings for the NVIDIA Management Library"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[[package]]
 name = "pyreadline"
 version = "2.1"
 description = "A python implmementation of GNU readline."
@@ -345,19 +329,6 @@ pygments = ">=2.6.0,<3.0.0"
 
 [package.extras]
 jupyter = ["ipywidgets (>=7.5.1,<8.0.0)"]
-
-[[package]]
-name = "scalene"
-version = "1.5.13"
-description = "Scalene: A high-resolution, low-overhead CPU, GPU, and memory profiler for Python"
-category = "main"
-optional = false
-python-versions = ">=3.8"
-
-[package.dependencies]
-cloudpickle = ">=1.5.0"
-pynvml = ">=11.0.0"
-rich = ">=9.2.0"
 
 [[package]]
 name = "setuptools"
@@ -424,7 +395,7 @@ test = ["pre-commit", "pytest"]
 
 [[package]]
 name = "typing-extensions"
-version = "4.3.0"
+version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 category = "dev"
 optional = false
@@ -449,7 +420,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10,<3.11"
-content-hash = "5e0dfd2542d7c66f04415587aaefed82c581eb4311dff25d02b1a082909c715c"
+content-hash = "57b60e842ed42b590a361356adcf03f7117798a6688d72fb930e962558eac166"
 
 [metadata.files]
 appnope = [
@@ -464,10 +435,6 @@ backcall = [
     {file = "backcall-0.2.0-py2.py3-none-any.whl", hash = "sha256:fbbce6a29f263178a1f7915c1940bde0ec2b2a967566fe1c65c1dfb7422bd255"},
     {file = "backcall-0.2.0.tar.gz", hash = "sha256:5cbdbf27be5e7cfadb448baf0aa95508f91f2bbc6c6437cd9cd06e2a4c215e1e"},
 ]
-cloudpickle = [
-    {file = "cloudpickle-2.2.0-py3-none-any.whl", hash = "sha256:7428798d5926d8fcbfd092d18d01a2a03daf8237d8fcdc8095d256b8490796f0"},
-    {file = "cloudpickle-2.2.0.tar.gz", hash = "sha256:3f4219469c55453cfe4737e564b67c2a149109dabf7f242478948b895f61106f"},
-]
 colorama = [
     {file = "colorama-0.4.5-py2.py3-none-any.whl", hash = "sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da"},
     {file = "colorama-0.4.5.tar.gz", hash = "sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4"},
@@ -477,28 +444,28 @@ commonmark = [
     {file = "commonmark-0.9.1.tar.gz", hash = "sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"},
 ]
 cupy-cuda11x = [
-    {file = "cupy_cuda11x-11.1.0-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:4bd740fbe1ab86961852b619211b1d9b6db4fe7c788bce31a7c5c695b774a124"},
-    {file = "cupy_cuda11x-11.1.0-cp310-cp310-win_amd64.whl", hash = "sha256:060b2130af0fb157a19fa4667267aff0033593b5647536d06a83542271774609"},
-    {file = "cupy_cuda11x-11.1.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:2003fa0398f30396a9cc6005fe64a0677947942d5d8d56ffc3d1246fbfeba684"},
-    {file = "cupy_cuda11x-11.1.0-cp37-cp37m-win_amd64.whl", hash = "sha256:cc4020ebaaae88c46ec7b098135a4dee8b58cf6330f68256829f32e5e8aa165a"},
-    {file = "cupy_cuda11x-11.1.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:c803fb2b14cd8b09caa5f65dfec9a5bfcc08fa90722a37782c73f1ef9523fe86"},
-    {file = "cupy_cuda11x-11.1.0-cp38-cp38-win_amd64.whl", hash = "sha256:a25686341edd06936421f60eae909c8a27e65e3723bd5a1f873c76b0397b62e2"},
-    {file = "cupy_cuda11x-11.1.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:e34d5a4dad5310f95e3966ecb1badda1b82f257107ce58169b9ac588b372789a"},
-    {file = "cupy_cuda11x-11.1.0-cp39-cp39-win_amd64.whl", hash = "sha256:c2cd769248ad2191463216923a189ca9d2b69245f9a6eb5123d55088380f119d"},
+    {file = "cupy_cuda11x-11.2.0-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:bd673c8a3ca26421697cf3442b5eaae9f12fbcb1d6cbb5c0d674227cdb4bee78"},
+    {file = "cupy_cuda11x-11.2.0-cp310-cp310-win_amd64.whl", hash = "sha256:4835f3f755257ff1f8582f2e4219606336c883ace3ffd7f9998690177b2ed3ad"},
+    {file = "cupy_cuda11x-11.2.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:c7022bd1679676dae8cd2886afb1e0323f8d733097a8d541a0a7804baa00991e"},
+    {file = "cupy_cuda11x-11.2.0-cp37-cp37m-win_amd64.whl", hash = "sha256:ad40f5ebc5e4deef3ab879ecc334a632f58d114b52d6abc133673f52a7e04c7a"},
+    {file = "cupy_cuda11x-11.2.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:12fda3e9f838f4db6cfbc5b9d84a7c867feedb3c5770d9194c04513b9e67ff59"},
+    {file = "cupy_cuda11x-11.2.0-cp38-cp38-win_amd64.whl", hash = "sha256:e370d33a5607585803da3833740480dbbc837e822fe448d93906daf276b9e514"},
+    {file = "cupy_cuda11x-11.2.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:b9272155578caf7d7f2571f0bfb0363039bf0809057bcf7dbe8e7935d49f3be7"},
+    {file = "cupy_cuda11x-11.2.0-cp39-cp39-win_amd64.whl", hash = "sha256:4423ee8c07c2c7e8995448141c12fb50e3f300bd392f17747940a80315193e3a"},
 ]
 cupy-rocm-5-0 = [
-    {file = "cupy_rocm_5_0-11.1.0-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:3bb0bcd9bf3ceb8dc588cc6195ae9ee90ba3d513722b390398be76c1e97b862a"},
-    {file = "cupy_rocm_5_0-11.1.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:48a086f02091f2c99b67d86d49b12cafacaebec9df779a25d565d5a277f03cd9"},
-    {file = "cupy_rocm_5_0-11.1.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:58438a83a5798e83e11721fc95db20a2890db671be2fc64ca87c8031cbee27be"},
-    {file = "cupy_rocm_5_0-11.1.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:4b3ed64a253eaa4b126536ee77f3201cb2dc7bb5cab35740fb1686a3e14408bc"},
+    {file = "cupy_rocm_5_0-11.2.0-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:3d0ded13b408b429988764ef5847330d4c76af1f5c5f5a3facd64d79be93b22a"},
+    {file = "cupy_rocm_5_0-11.2.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:5e75d8c5526b27840b5bf8451fc5d2893370fbe236d4d88fd7a25d4fad61730c"},
+    {file = "cupy_rocm_5_0-11.2.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:e6f3c14afac259aca9a7f6439e566a1d425bc71d5a14e2627601a86496f80e80"},
+    {file = "cupy_rocm_5_0-11.2.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:830342f13d755dbf4ad43b4898c73da98b0a542fac4cfa423b8e937c6ca92cb5"},
 ]
 decorator = [
     {file = "decorator-5.1.1-py3-none-any.whl", hash = "sha256:b8c3f85900b9dc423225913c5aace94729fe1fa9763b38939a95226f02d37186"},
     {file = "decorator-5.1.1.tar.gz", hash = "sha256:637996211036b6385ef91435e4fae22989472f9d571faba8927ba8253acbc330"},
 ]
 executing = [
-    {file = "executing-1.1.0-py2.py3-none-any.whl", hash = "sha256:4a6d96ba89eb3dcc11483471061b42b9006d8c9f81c584dd04246944cd022530"},
-    {file = "executing-1.1.0.tar.gz", hash = "sha256:2c2c07d1ec4b2d8f9676b25170f1d8445c0ee2eb78901afb075a4b8d83608c6a"},
+    {file = "executing-1.1.1-py2.py3-none-any.whl", hash = "sha256:236ea5f059a38781714a8bfba46a70fad3479c2f552abee3bbafadc57ed111b8"},
+    {file = "executing-1.1.1.tar.gz", hash = "sha256:b0d7f8dcc2bac47ce6e39374397e7acecea6fdc380a6d5323e26185d70f38ea8"},
 ]
 fancycompleter = [
     {file = "fancycompleter-0.9.1-py3-none-any.whl", hash = "sha256:dd076bca7d9d524cc7f25ec8f35ef95388ffef9ef46def4d3d25e9b044ad7080"},
@@ -668,10 +635,6 @@ Pygments = [
     {file = "Pygments-2.13.0-py3-none-any.whl", hash = "sha256:f643f331ab57ba3c9d89212ee4a2dabc6e94f117cf4eefde99a0574720d14c42"},
     {file = "Pygments-2.13.0.tar.gz", hash = "sha256:56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"},
 ]
-pynvml = [
-    {file = "pynvml-11.4.1-py3-none-any.whl", hash = "sha256:d27be542cd9d06558de18e2deffc8022ccd7355bc7382255d477038e7e424c6c"},
-    {file = "pynvml-11.4.1.tar.gz", hash = "sha256:b2e4a33b80569d093b513f5804db0c7f40cfc86f15a013ae7a8e99c5e175d5dd"},
-]
 pyreadline = [
     {file = "pyreadline-2.1.win-amd64.exe", hash = "sha256:9ce5fa65b8992dfa373bddc5b6e0864ead8f291c94fbfec05fbd5c836162e67b"},
     {file = "pyreadline-2.1.win32.exe", hash = "sha256:65540c21bfe14405a3a77e4c085ecfce88724743a4ead47c66b84defcf82c32e"},
@@ -683,20 +646,6 @@ pyrepl = [
 rich = [
     {file = "rich-12.6.0-py3-none-any.whl", hash = "sha256:a4eb26484f2c82589bd9a17c73d32a010b1e29d89f1604cd9bf3a2097b81bb5e"},
     {file = "rich-12.6.0.tar.gz", hash = "sha256:ba3a3775974105c221d31141f2c116f4fd65c5ceb0698657a11e9f295ec93fd0"},
-]
-scalene = [
-    {file = "scalene-1.5.13-cp310-cp310-macosx_10_15_universal2.whl", hash = "sha256:e69f7ee1749423f4dcfc8414219d10676f26691a28a90b7fbebd31141e20ed3a"},
-    {file = "scalene-1.5.13-cp310-cp310-manylinux_2_24_x86_64.whl", hash = "sha256:2118b41159d7306d410bb1ed73c80bffe4b718bcc4bf4a723e2cf0badb31bf6a"},
-    {file = "scalene-1.5.13-cp310-cp310-win_amd64.whl", hash = "sha256:321a94aff17523702157f9632d115fed62215ed64c607c528b97bab063f63b2f"},
-    {file = "scalene-1.5.13-cp37-cp37m-macosx_10_15_universal2.whl", hash = "sha256:25938a6c7e8fa14898e69354515fb41e072aa06d83be4060e2dbd0192d87c2af"},
-    {file = "scalene-1.5.13-cp37-cp37m-manylinux_2_24_x86_64.whl", hash = "sha256:e3dad1b5ce6d1329c9e2b595d55d50540ae8f1e8670e47509db593d1cb1b1809"},
-    {file = "scalene-1.5.13-cp38-cp38-macosx_10_15_universal2.whl", hash = "sha256:8959143c587807f2a341876efb40b770b95e3df94d5470ea0f2c5615a7ff186d"},
-    {file = "scalene-1.5.13-cp38-cp38-manylinux_2_24_x86_64.whl", hash = "sha256:37a340c73d93b08c502ad3e553f434fd91bb4913955979b9386935ded137782b"},
-    {file = "scalene-1.5.13-cp38-cp38-win_amd64.whl", hash = "sha256:8c51819f858f852106ad3b5da17d08575344dd45fa35a4311342dc6bcfb202ca"},
-    {file = "scalene-1.5.13-cp39-cp39-macosx_10_15_universal2.whl", hash = "sha256:b99252336e6351c24b5410145f4729b3f9012d9833160f1ac5221ee19f6d2eff"},
-    {file = "scalene-1.5.13-cp39-cp39-manylinux_2_24_x86_64.whl", hash = "sha256:fd4ec03141df635b6cc5cca9f801015e2fe6c71530727024febe28d4c749f502"},
-    {file = "scalene-1.5.13-cp39-cp39-win_amd64.whl", hash = "sha256:0ff439b5fdd696303c4d1e7293d5689c9e579da4aa48940149db3f979578fdba"},
-    {file = "scalene-1.5.13.tar.gz", hash = "sha256:0077d517249cfa6ad0953d85c9656bdaca57b863159bbb78969987d9bdbb539c"},
 ]
 setuptools = [
     {file = "setuptools-59.8.0-py3-none-any.whl", hash = "sha256:608a7885b664342ae9fafc43840b29d219c5a578876f6f7e00c4e2612160587f"},
@@ -725,8 +674,8 @@ traitlets = [
     {file = "traitlets-5.4.0.tar.gz", hash = "sha256:3f2c4e435e271592fe4390f1746ea56836e3a080f84e7833f0f801d9613fec39"},
 ]
 typing-extensions = [
-    {file = "typing_extensions-4.3.0-py3-none-any.whl", hash = "sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02"},
-    {file = "typing_extensions-4.3.0.tar.gz", hash = "sha256:e6d2677a32f47fc7eb2795db1dd15c1f34eff616bcaf2cfb5e997f854fa1c4a6"},
+    {file = "typing_extensions-4.4.0-py3-none-any.whl", hash = "sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e"},
+    {file = "typing_extensions-4.4.0.tar.gz", hash = "sha256:1511434bb92bf8dd198c12b1cc812e800d4181cfcb867674e0f8279cc93087aa"},
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},

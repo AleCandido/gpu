@@ -24,7 +24,7 @@ def launch(benchmark: meta.Benchmark, frameworks: meta.BenchSubject):
     modules = tuple(f.value for f in frameworks)
 
     _logger.info(f"Running {benchmark.name}" + str(names))
-    benchmark.value[0](*modules)
+    benchmark.value.f(*modules)
 
 
 def run():

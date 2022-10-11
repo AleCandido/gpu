@@ -1,7 +1,10 @@
 import enum
-from typing import Union
+import dataclasses
+import inspect
+from collections.abc import Callable
 
-from .elems import cupy_, tensorflow_, torch_, numba_
+from .elems import cupy_, numba_, tensorflow_, torch_
+from . import benchmarks as bs
 
 
 class Framework(enum.Enum):
@@ -11,11 +14,22 @@ class Framework(enum.Enum):
     numba = numba_
 
 
-BenchSubject = Union[tuple[Framework], tuple[(Framework,) * 2]]
+BenchSubject = tuple[Framework] | tuple[(Framework,) * 2]
+
+
+@dataclasses.dataclass
+class DefBench:
+    f: Callable
+    npars: int
+
+    @classmethod
+    def fromfunc(cls, func: Callable):
+        return cls(f=func, npars=len(inspect.signature(func).parameters))
 
 
 class Benchmark(enum.Enum):
-    plain = (lambda *args: 0,)
+    arange = DefBench.fromfunc(bs.arange)
+    saxpy = DefBench.fromfunc(bs.saxpy)
 
 
 shapes = {
