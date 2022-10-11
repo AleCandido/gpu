@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.10,<3.11"
 numpy = "^1.23.3"
 scalene = "^1.5.13"
+rich = "^12.6.0"
 
 [tool.poetry.group.cuda]
 optional = true
@@ -31,6 +32,7 @@ cupy-rocm-5-0 = "^11.1.0"
 
 [tool.poetry.group.dev.dependencies]
 ipython = "^8.5.0"
+pdbpp = "^0.10.3"
 
 [[tool.poetry.source]]
 name = "torch-cuda"
@@ -45,6 +47,9 @@ url = "https://download.pytorch.org/whl/rocm5.1.1"
 default = false
 secondary = true
 
+[tool.poetry.scripts]
+bench = "benchmark.run:run"
+dispatch = "benchmark.run.dispatch:run"
 
 [build-system]
 requires = ["poetry-core"]
