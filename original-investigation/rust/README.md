@@ -2,7 +2,8 @@
 
 ## Collections
 
-- nice but outdated [blog post](https://bheisler.github.io/post/state-of-gpgpu-in-rust/)
+- nice but outdated
+  [blog post](https://bheisler.github.io/post/state-of-gpgpu-in-rust/)
 - [discussion](https://users.rust-lang.org/t/best-way-to-start-programming-for-gpu-in-rust/29768/5)
   on Rust users forum
 
@@ -28,3 +29,13 @@ are graphics, so **violate 3.**
 
 There is also a native Tier 2 target of `rustc` (`no_std`) for CUDA only
 https://doc.rust-lang.org/stable/rustc/platform-support/nvptx64-nvidia-cuda.html
+
+## Most Promising
+
+Definitely [`ocl`](https://github.com/cogciprocate/ocl), in any case strings are
+an issue if you can use static analyzer.
+
+Indeed, there is quite a chance that you wouldn't have any static analysis for
+OpenCL. But would be interesting to see OpenCL mapped to Rust somehow, such that
+a macro can create the OpenCL code afterwards, on top of a correct Rust code.
+There might be plenty of issues on this way.

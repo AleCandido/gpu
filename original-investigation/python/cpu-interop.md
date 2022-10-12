@@ -1,4 +1,4 @@
-# CPU arrays
+# CPU arrays interoperability
 
 Also for CPU arrays there are standards, and interoperability.
 
