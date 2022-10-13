@@ -8,8 +8,8 @@ choice.
 Two ways interoperable:
 
 - Rust, since [ever](https://doc.rust-lang.org/nomicon/ffi.html), and
-  [ever](https://docs.rust-embedded.org/book/interoperability/index.html),
-  and [ever](https://cxx.rs/)
+  [ever](https://docs.rust-embedded.org/book/interoperability/index.html), and
+  [ever](https://cxx.rs/)
 - Fortran, since
   [2003](https://www.ibm.com/docs/en/xl-fortran-aix/15.1.2?topic=reference-language-interoperability-features#interoperability)
   - small community still
@@ -18,8 +18,8 @@ One way (the other is possible, but instantiating the full interpreter, and in
 general inefficient/uncomfortable):
 
 - Python, relatively easy to make packages out of C/C++ libraries
-- Julia, seems [easy](https://github.com/JuliaInterop/Cxx.jl) [as
-  well](https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/#Calling-C-and-Fortran-Code)
+- Julia, seems [easy](https://github.com/JuliaInterop/Cxx.jl)
+  [as well](https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/#Calling-C-and-Fortran-Code)
 
 Other languages are present and popular, but they are mainly relevant for Web
 and Interfaces, not so much for scientific computing.
@@ -51,12 +51,13 @@ Reuse same array in GPU over and over (passing "pointers").
 
 ### Personal principles
 
-1. avoid language in strings/comments -> all language should be encoded in syntax
-   - this doesn't rule out eDSL (e.g. SYCL) but rules out CuPy if large buches
-     of `RawKernel` are needed
+1. avoid language in strings/comments -> all language should be encoded in
+   syntax
+   - this doesn't rule out eDSL (e.g. SYCL) but it would rule out CuPy if large
+     chunks of `RawKernel` are needed
 2. support efficient interfaces for all the relevant languages above
-   - it does rule out Python or Julia native frameworks, since you need to
-     embed an interpreter to run a library in C++ (e.g.)
+   - it does rule out Python or Julia native frameworks, since you need to embed
+     an interpreter to run a library in C++ (e.g.)
    - https://docs.julialang.org/en/v1/manual/embedding/
 3. avoid graphics first frameworks
    - the majority of frameworks leveraging GPU are for graphics, since it's the
